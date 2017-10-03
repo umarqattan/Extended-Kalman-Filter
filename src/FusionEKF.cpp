@@ -37,6 +37,9 @@ FusionEKF::FusionEKF() {
               0, 1, 0, 0;
     
     
+  noise_ax = 9.0;
+  noise_ay = 9.0;
+    
 }
 
 /**
@@ -116,9 +119,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     ekf_.F_(0,2) = dt;
     ekf_.F_(1,3) = dt;
     
-    // Q: Process Noise parameter
-    float noise_ax = 9;
-    float noise_ay = 9;
     
     float dt_2 = dt * dt;
     float dt_3 = dt_2 * dt;
